@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>송내고등학교 급식표</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .day-buttons {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+        .meal {
+            display: none;
+        }
+        .meal.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>송내고등학교 급식표</h1>
+        
+        <div class="day-buttons">
+            <button onclick="showMeal('monday')">월요일</button>
+            <button onclick="showMeal('tuesday')">화요일</button>
+            <button disabled>수요일</button>
+            <button onclick="showMeal('thursday')">목요일</button>
+            <button onclick="showMeal('friday')">금요일</button>
+            <button disabled>토요일</button>
+            <button disabled>일요일</button>
+        </div>
+        
+        <div id="monday" class="meal">
+            <h2>월요일 급식</h2>
+            <ul>
+                <li>찰보리밥, 닭곰탕</li>
+                <li>시금치무침, 깍두기</li>
+                <li>곱창순대볶음, 오렌지주스</li>
+            </ul>
+        </div>
+        
+        <div id="tuesday" class="meal">
+            <h2>화요일 급식</h2>
+            <ul>
+                <li>차수수밥, 갈비탕</li>
+                <li>건파래볶음, 김치전</li>
+                <li>섞박지, 조각케이크</li>
+            </ul>
+        </div>
+
+        <div id="thursday" class="meal">
+            <h2>목요일 급식</h2>
+            <ul>
+                <li>찰옥수수밥, 차돌박이된장찌개</li>
+                <li>고등어무조림, 배추김치</li>
+                <li>요구르트, 비엔나소시지볶음</li>
+            </ul>
+        </div>
+
+        <div id="friday" class="meal">
+            <h2>금요일 급식</h2>
+            <ul>
+                <li>날치알밥, 어묵우동</li>
+                <li>배추겉절이, 로제떡볶이</li>
+                <li>데리야끼닭꼬치</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function showMeal(day) {
+            // Hide all meal divs
+            var meals = document.querySelectorAll('.meal');
+            meals.forEach(function(meal) {
+                meal.classList.remove('active');
+            });
+
+            // Show the meal div for the selected day
+            var selectedMeal = document.getElementById(day);
+            selectedMeal.classList.add('active');
+        }
+    </script>
+</body>
+</html>
